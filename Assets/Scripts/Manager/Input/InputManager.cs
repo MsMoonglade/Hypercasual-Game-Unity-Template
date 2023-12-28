@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : Singleton<InputManager>
-{
-    [SerializeField]
-    float m_InputSensitivity = 1.5f;
+{    
+    public float InputSensitivity { get; private set; } = 1.5f;
 
     //FOR DEBUG INPUT IN GAME VIEW
     private Vector2 oldInputPos;
@@ -33,7 +32,7 @@ public class InputManager : Singleton<InputManager>
 
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {             
-                CharacterBehaviour.Instance.characterMover.HorizontalMove(new Vector3(touch.deltaPosition.x * m_InputSensitivity, 0, 0));
+                CharacterBehaviour.Instance.characterMover.HorizontalMove(new Vector3(touch.deltaPosition.x * InputSensitivity, 0, 0));
             }
 
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)

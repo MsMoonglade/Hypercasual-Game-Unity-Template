@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour
-{
-    public static PoolManager instance;
-    
-    public List<PooledObject> pool = new List<PooledObject>();
+public class PoolManager : SingletonPersistent<PoolManager>
+{    
+    private List<PooledObject> pool = new List<PooledObject>();
 
     [HideInInspector]
     public List<GameObject> poolParents = new List<GameObject>();  
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        instance = this;
+        base.Awake();
 
         foreach (PooledObject p in pool)
         {
@@ -23,6 +21,16 @@ public class PoolManager : MonoBehaviour
 
             GeneratePool(p.obj_Prefs, p.initial_quantity, poolParent);
         }
+    }
+
+    private void GeneratePool(GameObject i_obj, int i_quantity, GameObject i_parent)
+    {
+        for (int i = 0; i < i_quantity; i++)
+        {
+            GameObject o = InstantiateInPool(i_obj, i_parent);
+        }
+
+        poolParents.Add(i_parent);
     }
 
     public GameObject GetPooledItem(GameObject i_obj, Vector3 i_pos)
@@ -45,7 +53,7 @@ public class PoolManager : MonoBehaviour
             return null;
         }
 
-        o_obj = PickObjectFromPool(objParent);
+        o_obj = PickObjectFromParent(objParent);
 
         if (o_obj != null)
         {
@@ -63,7 +71,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject PickObjectFromPool(GameObject i_parent)
+    private GameObject PickObjectFromParent(GameObject i_parent)
     {
         GameObject o_pooledObj = null;
 
@@ -78,17 +86,7 @@ public class PoolManager : MonoBehaviour
         return o_pooledObj;
     }
 
-    private void GeneratePool(GameObject i_obj, int i_quantity, GameObject i_parent)
-    {
-        for (int i = 0; i < i_quantity; i++)
-        {
-            GameObject o = InstantiateInPool(i_obj, i_parent);
-        }
-
-        poolParents.Add(i_parent);
-    }
-
-    public GameObject InstantiateInPool(GameObject i_obj, GameObject i_parent)
+    private GameObject InstantiateInPool(GameObject i_obj, GameObject i_parent)
     {
         GameObject o_inst = Instantiate(i_obj, i_parent.transform.position, i_obj.transform.rotation, i_parent.transform);
         o_inst.gameObject.SetActive(false);

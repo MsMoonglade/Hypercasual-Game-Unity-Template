@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CurrencyManager : Singleton<CurrencyManager>
 {
-    [HideInInspector]
-    public int currency_Gold;
+    public int CurrencyGold {  get; private set; }
 
     protected override void Awake()
     {
@@ -16,37 +15,37 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
     public void AddGold(int i_amount)
     {
-        currency_Gold += i_amount;
+        CurrencyGold += i_amount;
         SaveCurrencies();
     }
 
     public void SpendGold(int i_amount)
     {
-        currency_Gold -= i_amount;
+        CurrencyGold -= i_amount;
         SaveCurrencies() ;
     }
 
     public bool HaveGoldAmount(int i_amount)
     {
         bool o_have;
-        o_have = (currency_Gold >= i_amount) ? true : false;
+        o_have = (CurrencyGold >= i_amount) ? true : false;
 
         return o_have;       
     }
 
     private void SaveCurrencies()
     {
-        PlayerPrefs.SetInt(Currency.currency_Gold, currency_Gold);
+        PlayerPrefs.SetInt(Currency.currency_Gold, CurrencyGold);
     }
 
     private void LoadCurrencies()
     {
         if (PlayerPrefs.HasKey(Currency.currency_Gold))
-            currency_Gold = PlayerPrefs.GetInt(Currency.currency_Gold);
+            CurrencyGold = PlayerPrefs.GetInt(Currency.currency_Gold);
         else
         {
-            currency_Gold = 0;
-            PlayerPrefs.SetInt(Currency.currency_Gold, currency_Gold);
+            CurrencyGold = 0;
+            PlayerPrefs.SetInt(Currency.currency_Gold, CurrencyGold);
         }
     }
 }

@@ -98,7 +98,7 @@ public class CharacterShooter : MonoBehaviour
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
         }
 
-        GameObject bullet = PoolManager.instance.GetPooledItem(bulletPrefs, shootPosition.transform.position);
+        GameObject bullet = PoolManager.Instance.GetPooledItem(bulletPrefs, shootPosition.transform.position);
         bullet.transform.rotation = i_rot;    
         bullet.GetComponent<BulletBehaviour>().Init();
     }

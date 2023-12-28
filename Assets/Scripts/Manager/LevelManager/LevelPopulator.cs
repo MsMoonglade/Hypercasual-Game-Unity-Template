@@ -83,13 +83,13 @@ public class LevelPopulator : MonoBehaviour
         return o;
     }
 
-    private float EvaluateLevelLenght(int currentLevel)
+    private float EvaluateLevelLenght(int i_level)
     {
         int fixedLevel = 0;
 
-        if (currentLevel < 25)
+        if (i_level < 25)
         {
-            fixedLevel = currentLevel;
+            fixedLevel = i_level;
         }
 
         else

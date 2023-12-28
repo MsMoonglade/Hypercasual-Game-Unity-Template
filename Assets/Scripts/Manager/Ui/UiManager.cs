@@ -33,7 +33,6 @@ public class UiManager : Singleton<UiManager>
 
     public UiState State { get; private set; }
 
-
     protected override void Awake()
     {
         base.Awake();

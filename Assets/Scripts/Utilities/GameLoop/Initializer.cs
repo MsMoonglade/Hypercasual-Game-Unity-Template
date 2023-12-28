@@ -8,6 +8,11 @@ public class Initializer : MonoBehaviour
 {
     void Awake()
     {
+        Init();
+    }
+
+    void Init()
+    {
         CheckNewGameVersion();
 
         DOTween.Init();
@@ -15,17 +20,16 @@ public class Initializer : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    //is new Store version is downloaded clear PlayerPrefs
+    //if new Store version is downloaded clear PlayerPrefs
     void CheckNewGameVersion()
     {
-        if (PlayerPrefs.HasKey("Build_1.0"))
+        if (PlayerPrefs.HasKey(Saves.gameVersion))
             return;
 
         else
         {
-            PlayerPrefs.DeleteAll();
-
-            PlayerPrefs.SetInt("Build_1.0", 1);
+            SaveManager.Instance.ClearAllSave();
+            SaveManager.Instance.Save(1, Saves.gameVersion);
         }
     }    
 }

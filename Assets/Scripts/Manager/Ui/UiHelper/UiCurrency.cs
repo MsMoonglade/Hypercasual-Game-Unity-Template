@@ -11,6 +11,6 @@ public class UiCurrency : MonoBehaviour
 
     public void RefreshCurrency()
     {
-        currency_GoldText.text = CurrencyManager.Instance.currency_Gold.ToString();
+        currency_GoldText.text = CurrencyManager.Instance.CurrencyGold.ToString();
     }
 }
