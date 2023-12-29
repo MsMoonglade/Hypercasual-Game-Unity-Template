@@ -11,8 +11,10 @@ using TMPro;
 [RequireComponent(typeof(CharacterMover))]
 [RequireComponent(typeof(CharacterShooter))]
 [RequireComponent(typeof(CharacterUi))]
-public class CharacterBehaviour : Singleton<CharacterBehaviour>
+public class CharacterBehaviour : MonoBehaviour
 {
+    public static CharacterBehaviour instance;
+
     [Header ("Local References")]
     public GameObject model;   
     public ParticleSystem powerUpParticle;
@@ -28,6 +30,7 @@ public class CharacterBehaviour : Singleton<CharacterBehaviour>
 
     private void Awake()
     {
+        instance = this;   
         //LoadPlayerValue();
 
         characterMover = transform.GetComponent<CharacterMover>();
@@ -77,20 +80,6 @@ public class CharacterBehaviour : Singleton<CharacterBehaviour>
 
     private void OnPlayGame(object sender)
     {
-    }
-
-    /// <summary>
-    /// Increase / Decrease Character MoveSpeed
-    /// </summary>
-    /// <param name="i_amount"></param>
-    public void IncreaseMoveSpeedInGame(float i_amount)
-    {
-        characterMover.forwardMoveSpeed += i_amount;
-
-        if (i_amount > 0)
-            powerUpParticle.Play();
-        else
-            powerDownParticle.Play();
     }
 
     /*

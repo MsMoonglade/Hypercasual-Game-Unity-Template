@@ -9,6 +9,7 @@ using System;
 [RequireComponent(typeof(UiInstantiateObject))]
 [RequireComponent(typeof(UiCurrency))]
 [RequireComponent(typeof(UiRefresh))]
+[RequireComponent(typeof(UiFeedback))]
 public class UiManager : Singleton<UiManager>
 {
     [Header("Panel References")]
@@ -16,9 +17,6 @@ public class UiManager : Singleton<UiManager>
     public CanvasGroup gameUi;
     public CanvasGroup endGameUi;
     public CanvasGroup retryUi;
-    
-    [Header("Specific References")]
-    public GameObject endGameConfetti;
 
     [Header("Local Component")]
     //Used To instantiate element in Ui
@@ -30,6 +28,9 @@ public class UiManager : Singleton<UiManager>
     //Store ui element that need to refresh
     [HideInInspector]
     public UiRefresh uiRefresh;
+    //Store ui Feedback
+    [HideInInspector]
+    public UiFeedback uiFeedback;
 
     public UiState State { get; private set; }
 
@@ -39,6 +40,8 @@ public class UiManager : Singleton<UiManager>
 
         instantiator.transform.GetComponent<UiInstantiateObject>();
         uiCurrency = transform.GetComponent<UiCurrency>();
+        uiRefresh = transform.GetComponent<UiRefresh>();
+        uiFeedback = transform.GetComponent<UiFeedback>();
     }
 
     public void ChangeState(UiState newState)
@@ -93,7 +96,7 @@ public class UiManager : Singleton<UiManager>
         float alpha = 0;
         DOTween.To(() => alpha, x => alpha = x, 1, 0.5f)
             .OnUpdate(() => endGameUi.alpha = alpha)
-            .OnComplete(() => OnEndGameUiComplete());
+            .OnComplete(() => uiFeedback.EndGameFeedback());
     }
 
     private void HandleRetry()
@@ -102,12 +105,6 @@ public class UiManager : Singleton<UiManager>
         mainMenuUi.alpha = 0;
         gameUi.alpha = 0;
         endGameUi.alpha = 0;
-    }
-
-    private void OnEndGameUiComplete()
-    {
-        endGameUi.alpha = 1;
-        endGameConfetti.gameObject.SetActive(true);
     }
 }
 

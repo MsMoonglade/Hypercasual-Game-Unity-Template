@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(UiManager))]
 public class UiInstantiateObject : MonoBehaviour
 {
-    public List<UiElementToinstantiate> elementToInstantiate = new List<UiElementToinstantiate>();
+    public GameObject uiTempParent;
+
+    public List<UiElementToInstantiate> elementToInstantiate = new List<UiElementToInstantiate>();
 
     public void InstantiateElementInUi(int i_quantity , int i_index)
     {
@@ -34,7 +37,7 @@ public class UiInstantiateObject : MonoBehaviour
 
         for (int i = 0; i < i_quantity; i++)
         {
-            GameObject coin = Instantiate(obj, pos, Quaternion.identity, transform);
+            GameObject coin = Instantiate(obj, pos, Quaternion.identity, uiTempParent.transform);
             coin.transform.localScale = Vector3.zero;
 
             AnimateInstantiatedElement(coin, dest, animTime);
@@ -53,7 +56,7 @@ public class UiInstantiateObject : MonoBehaviour
 }
 
 [System.Serializable]
-public struct UiElementToinstantiate
+public struct UiElementToInstantiate
 {
     public GameObject obj_Prefs;    
     public Vector3 obj_Pos;

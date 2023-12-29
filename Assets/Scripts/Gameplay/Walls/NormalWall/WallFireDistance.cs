@@ -28,12 +28,7 @@ public class WallFireDistance : WallBehaviour
 
         float localAmountToIncrease = startVariable * multiplyDistanceRate;
 
-        CharacterBehaviour.Instance.characterShooter.bulletActiveTime += localAmountToIncrease;
-
-        if (localAmountToIncrease > 0)
-            CharacterBehaviour.Instance.powerUpParticle.Play();
-        else
-            CharacterBehaviour.Instance.powerDownParticle.Play();
+        CharacterBehaviour.instance.characterShooter.bulletActiveTime += localAmountToIncrease;
     }
 
     public override void TakeHit(int i_value)
@@ -67,7 +62,7 @@ public class WallFireDistance : WallBehaviour
         base.OnSetDifficulty(sender);
 
         if(isNegative)
-            startVariable = -DifficultyManager.Instance.WallDifficulty(LevelManager.Instance.CurrentLevel);
+            startVariable = -(int)DifficultyManager.Instance.WallDifficulty(LevelManager.Instance.CurrentLevel);
         else
             SetStartVariable();
 

@@ -49,6 +49,20 @@ public class CharacterMover : MonoBehaviour
     }
 
     /// <summary>
+    /// Increase/Decrease MoveSpeed
+    /// </summary>
+    /// <param name="i_amount"><Amount to Increase or Decrease Fire Rate /param>
+    public void ChangeMoveSpeed(float i_amount)
+    {
+        forwardMoveSpeed += i_amount;
+
+        if (i_amount < 0)
+            characterBehaviour.powerUpParticle.Play();
+        else
+            characterBehaviour.powerDownParticle.Play();
+    }
+
+    /// <summary>
     /// Feedback when player hit an obstacles
     /// </summary>
     public void HitObstaclesFeedback()

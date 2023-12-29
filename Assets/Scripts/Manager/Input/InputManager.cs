@@ -32,12 +32,12 @@ public class InputManager : Singleton<InputManager>
 
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {             
-                CharacterBehaviour.Instance.characterMover.HorizontalMove(new Vector3(touch.deltaPosition.x * InputSensitivity, 0, 0));
+                CharacterBehaviour.instance.characterMover.HorizontalMove(new Vector3(touch.deltaPosition.x * InputSensitivity, 0, 0));
             }
 
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {                   
-                CharacterBehaviour.Instance.characterMover.HorizontalMove(Vector3.zero);
+                CharacterBehaviour.instance.characterMover.HorizontalMove(Vector3.zero);
             }
         }
     }

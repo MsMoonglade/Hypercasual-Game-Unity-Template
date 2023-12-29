@@ -30,9 +30,9 @@ public class EndGameBestScoreFlag : MonoBehaviour
     /// </summary>
     private void CheckPlayerPosInEndGame()
     {
-        if(CharacterBehaviour.Instance.transform.position.z > transform.position.z)
+        if(CharacterBehaviour.instance.transform.position.z > transform.position.z)
         {
-            transform.DOMoveZ(CharacterBehaviour.Instance.transform.position.z, 0.1f);
+            transform.DOMoveZ(CharacterBehaviour.instance.transform.position.z, 0.1f);
         }
 
         SaveNewPos();

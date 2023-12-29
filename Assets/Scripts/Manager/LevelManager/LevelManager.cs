@@ -21,7 +21,7 @@ public class LevelManager : Singleton<LevelManager>
         set
         {
             currentLevel = value;
-            PlayerPrefs.SetInt("CurrentLevel", CurrentLevel);
+            SaveManager.Instance.Save(CurrentLevel, Saves.currentLevel);
         }
     }
 
@@ -29,28 +29,25 @@ public class LevelManager : Singleton<LevelManager>
     {
         base.Awake();
       
-        LoadLevelSave();
+        Load();
     }
 
     public void GenerateLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentScene != SceneManager.sceneCount - 1)
+        if (currentScene != SceneManager.sceneCount - 2)
             return;
 
         else        
             transform.GetComponent<LevelPopulator>().PopulateLevel(CurrentLevel);                
     }
 
-    private void LoadLevelSave() 
+    private void Load() 
     {
-        if (PlayerPrefs.HasKey("CurrentLevel"))
-            CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
-        else
-        {
+        CurrentLevel = SaveManager.Instance.LoadInt(Saves.currentLevel);
+
+        if (CurrentLevel == 0)
             CurrentLevel = 1;
-            PlayerPrefs.SetInt("CurrentLevel", CurrentLevel);
-        }
     }
 }

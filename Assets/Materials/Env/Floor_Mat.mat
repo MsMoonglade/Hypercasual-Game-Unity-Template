@@ -21,14 +21,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf, type: 3}
   m_ValidKeywords:
   - TCP2_REFLECTIONS_FRESNEL
   - TCP2_RIM_LIGHTING_LIGHTMASK
   - TCP2_SHADOW_LIGHT_COLOR
   m_InvalidKeywords:
+  - TCP2_DISABLE_WRAPPED_LIGHT
   - TCP2_UV_NORMALS_FULL
+  - _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -129,6 +130,7 @@ Material:
     - _DirectIntensityOutline: 1
     - _DstBlend: 0
     - _EmissionChannel: 4
+    - _EnableOutline: 0
     - _EnvironmentReflections: 1
     - _FresnelMax: 1.5
     - _FresnelMin: 0
@@ -141,6 +143,7 @@ Material:
     - _MatCapMaskChannel: 0
     - _MatCapType: 0
     - _Metallic: 0
+    - _Mode: 0
     - _NormalsSource: 0
     - _NormalsUVType: 0
     - _OcclusionChannel: 0
@@ -159,6 +162,8 @@ Material:
     - _RampBandsSmoothing: 0.1
     - _RampOffset: 0
     - _RampScale: 1
+    - _RampSmooth: 0.2
+    - _RampSmoothAdd: 0.75
     - _RampSmoothing: 1
     - _RampThreshold: 0.01
     - _RampType: 0
@@ -169,6 +174,7 @@ Material:
     - _RenderingMode: 0
     - _RimMax: 1
     - _RimMin: 0.5
+    - _RimStrength: 0.5
     - _SampleGI: 0
     - _ShadowColorLightAtten: 1
     - _Shininess: 0
@@ -176,6 +182,8 @@ Material:
     - _Smoothness: 1
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
+    - _SpecBlend: 1
+    - _SpecSmooth: 1
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SpecularMapType: 0
@@ -185,6 +193,11 @@ Material:
     - _SpecularType: 0
     - _SrcBlend: 1
     - _Surface: 0
+    - _TCP2_DISABLE_WRAPPED_LIGHT: 1
+    - _TCP2_RAMPTEXT: 0
+    - _TCP2_SPEC_TOON: 0
+    - _TCP2_STYLIZED_FRESNEL: 0
+    - _UVSec: 0
     - _UseAlphaTest: 0
     - _UseEmission: 0
     - _UseFresnelReflections: 1

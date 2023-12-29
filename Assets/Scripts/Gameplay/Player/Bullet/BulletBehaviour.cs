@@ -99,7 +99,7 @@ public class BulletBehaviour : MonoBehaviour
 
         enable_Particle.Play();
 
-        disableCoroutine = StartCoroutine(DisableCoroutine(CharacterBehaviour.Instance.characterShooter.bulletActiveTime));
+        disableCoroutine = StartCoroutine(DisableCoroutine(CharacterBehaviour.instance.characterShooter.bulletActiveTime));
         StartCoroutine(MoveForward());
     }
 

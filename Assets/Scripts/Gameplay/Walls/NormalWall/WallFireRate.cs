@@ -27,7 +27,7 @@ public class WallFireRate : WallBehaviour
 
         float localAmountToIncrease = startVariable * multiplyFireRateRate;
 
-        CharacterBehaviour.Instance.characterShooter.ChangeFireRate(localAmountToIncrease);
+        CharacterBehaviour.instance.characterShooter.ChangeFireRate(localAmountToIncrease);
     }
 
     public override void TakeHit(int i_value)
@@ -61,7 +61,7 @@ public class WallFireRate : WallBehaviour
         base.OnSetDifficulty(sender);
 
         if (isNegative)
-            startVariable = -DifficultyManager.Instance.WallDifficulty(LevelManager.Instance.CurrentLevel);
+            startVariable = -(int)DifficultyManager.Instance.WallDifficulty(LevelManager.Instance.CurrentLevel);
         else
             SetStartVariable();
 

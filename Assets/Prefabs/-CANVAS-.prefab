@@ -1138,8 +1138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499,
-    type: 3}
+  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1788,8 +1787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2407,8 +2405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2118251432724805000, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: 2118251432724805000, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2772,8 +2769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7802823482531605798, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: -7802823482531605798, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3399,8 +3395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -812798249405265506, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: -812798249405265506, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3590,8 +3585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3822,6 +3816,7 @@ MonoBehaviour:
   _emitOnSurface: 1
   _emitterThickness: 0
   _loop: 0
+  _prewarm: 0
   _duration: 0.3
   _playMode: 1
   _startSize:
@@ -5143,12 +5138,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMax: {r: 1, g: 1, b: 1, a: 1}
+  _trailMaterial: {fileID: 0}
   _inheritParticleColor: 1
   _dieWithParticle: 0
   _trailRatio: 0.1
-  _noiseOctaves: 1
+  _noiseOffset: {x: 0, y: 0}
   _noiseFrequency: 0.3
   _noiseStrength: 2
+  _multithreadModule:
+    enabled: 0
+  _multithreadEnabled: 0
   _onStart:
     m_PersistentCalls:
       m_Calls: []
@@ -5168,6 +5167,8 @@ MonoBehaviour:
   moduleParticleFoldout: 1
   moduleMovementFoldout: 1
   moduleEventsFoldout: 0
+  moduleAdvancedFoldout: 0
+  m_Sprite: {fileID: 0}
   m_Texture: {fileID: 0}
 --- !u!1 &2006206164666667049
 GameObject:
@@ -5533,6 +5534,7 @@ MonoBehaviour:
   _emitOnSurface: 1
   _emitterThickness: 0
   _loop: 0
+  _prewarm: 0
   _duration: 0.3
   _playMode: 1
   _startSize:
@@ -6854,12 +6856,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMax: {r: 1, g: 1, b: 1, a: 1}
+  _trailMaterial: {fileID: 0}
   _inheritParticleColor: 1
   _dieWithParticle: 0
   _trailRatio: 0.1
-  _noiseOctaves: 1
+  _noiseOffset: {x: 0, y: 0}
   _noiseFrequency: 0.3
   _noiseStrength: 2
+  _multithreadModule:
+    enabled: 0
+  _multithreadEnabled: 0
   _onStart:
     m_PersistentCalls:
       m_Calls: []
@@ -6879,6 +6885,8 @@ MonoBehaviour:
   moduleParticleFoldout: 1
   moduleMovementFoldout: 0
   moduleEventsFoldout: 0
+  moduleAdvancedFoldout: 0
+  m_Sprite: {fileID: 0}
   m_Texture: {fileID: 0}
 --- !u!1 &2338625761024708661
 GameObject:
@@ -7336,6 +7344,7 @@ MonoBehaviour:
   _emitOnSurface: 1
   _emitterThickness: 0
   _loop: 1
+  _prewarm: 0
   _duration: 1
   _playMode: 1
   _startSize:
@@ -8636,12 +8645,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMax: {r: 1, g: 1, b: 1, a: 1}
+  _trailMaterial: {fileID: 0}
   _inheritParticleColor: 0
   _dieWithParticle: 0
   _trailRatio: 1
-  _noiseOctaves: 1
+  _noiseOffset: {x: 0, y: 0}
   _noiseFrequency: 0.3
   _noiseStrength: 1
+  _multithreadModule:
+    enabled: 0
+  _multithreadEnabled: 0
   _onStart:
     m_PersistentCalls:
       m_Calls: []
@@ -8661,6 +8674,8 @@ MonoBehaviour:
   moduleParticleFoldout: 1
   moduleMovementFoldout: 0
   moduleEventsFoldout: 0
+  moduleAdvancedFoldout: 0
+  m_Sprite: {fileID: 0}
   m_Texture: {fileID: 0}
 --- !u!1 &3446563714669724900
 GameObject:
@@ -8996,11 +9011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9cf051a0361397419b163ecc4d67119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printerScaleIndex: 0
-  jumpSpeedAddPerLevel: 0.005
-  jumpSpeedIndex: 0
-  moveSpeedAddPerLevel: 0.1
-  moveSpeedIndex: 0
 --- !u!114 &5218768715442481235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9013,16 +9023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167a49df0ff834146a614d6112122f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buy_AditionalMoney_Cost_Text: {fileID: 409160308}
-  currentBuyedMoney_EditCanvas: {fileID: 2396140776550547106}
-  currentCharacterValue_Character: {fileID: 7313904673626313378}
-  characterMaxText_Character: {fileID: 2145553422364772286}
-  currentBuyedMoneyValue_EditCanvas: {fileID: 7334573967511684967}
-  buyMoneyButtonImage: {fileID: 1800712591}
-  haveGoldImage: {fileID: 21300000, guid: 200c29f60911a4f449f1a80c4af514f3, type: 3}
-  dontHaveGoldimage: {fileID: 21300000, guid: 7288b11be9a2fd249b696214055d85da, type: 3}
-  currentCharacterLevelSlider_Character: {fileID: 251494571029408807}
-  buyMoneyButton: {fileID: 1800712587}
 --- !u!1 &3581768683357930602
 GameObject:
   m_ObjectHideFlags: 0
@@ -9825,8 +9825,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eadb30957ac84cd46b21c4bde5ae4952, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: eadb30957ac84cd46b21c4bde5ae4952, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10212,8 +10212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499,
-    type: 3}
+  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11572,6 +11571,7 @@ GameObject:
   - component: {fileID: 399887201684456682}
   - component: {fileID: 3531777775402189277}
   - component: {fileID: 5792084760363583316}
+  - component: {fileID: 1637288258}
   m_Layer: 5
   m_Name: HandBg
   m_TagString: Untagged
@@ -11586,18 +11586,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7492614285945415622}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8943072455246397250}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 500}
+  m_SizeDelta: {x: 622.01, y: 224.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3531777775402189277
 CanvasRenderer:
@@ -11620,14 +11620,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec50656b598fc994b9a2120ccd0cc99e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03c90d80aa53d444eb6c90ca6f7af5b0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11636,7 +11636,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3
+  m_PixelsPerUnitMultiplier: 4
+--- !u!114 &1637288258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492614285945415622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.65882355}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &7539116204606965994
 GameObject:
   m_ObjectHideFlags: 0
@@ -11741,8 +11756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: 2622190426555931498, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11818,8 +11832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499,
-    type: 3}
+  m_Sprite: {fileID: 6761682228642748091, guid: 3ca82f40ea9459c43a368b1ba8673499, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11897,8 +11910,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LEVEL FAIL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eadb30957ac84cd46b21c4bde5ae4952, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: eadb30957ac84cd46b21c4bde5ae4952, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12307,8 +12320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2118251432724805000, guid: a3801759192e3c14fb82109b7fd46aac,
-    type: 3}
+  m_Sprite: {fileID: 2118251432724805000, guid: a3801759192e3c14fb82109b7fd46aac, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

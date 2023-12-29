@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolManager : SingletonPersistent<PoolManager>
 {    
-    private List<PooledObject> pool = new List<PooledObject>();
+    public List<PooledObject> pool = new List<PooledObject>();
 
     [HideInInspector]
     public List<GameObject> poolParents = new List<GameObject>();  

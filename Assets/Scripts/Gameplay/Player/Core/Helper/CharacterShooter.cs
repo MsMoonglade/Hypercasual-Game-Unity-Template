@@ -27,7 +27,7 @@ public class CharacterShooter : MonoBehaviour
 
     private void Awake()
     {
-        characterBehaviour = CharacterBehaviour.Instance;
+        characterBehaviour = GetComponent<CharacterBehaviour>();
 
         spreadShoot = false;
 

@@ -61,7 +61,7 @@ public class Interactable : MonoBehaviour
     //Check if Player Z Position is greather than this Position Z
     protected virtual bool CheckPlayerPosition()
     {
-        if (CharacterBehaviour.Instance.transform.position.z >= transform.position.z)
+        if (CharacterBehaviour.instance.transform.position.z >= transform.position.z)
         {
             return true;
         }

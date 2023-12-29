@@ -12,17 +12,17 @@ public class DifficultyManager : Singleton<DifficultyManager>
     public AnimationCurve wallIndex;
     public float wallRandomizer;
 
-    public float InteractableIndex(int i_level)
+    public float InteractableDifficulty(int i_level)
     {
         return ReturnValue(interactableIndex, interactableRandomizer , i_level);
     }
 
-    public int WallDifficulty(int i_level)
+    public float WallDifficulty(int i_level)
     {
         return ReturnValue(wallIndex, wallRandomizer, i_level);
     }
 
-    public int ReturnValue(AnimationCurve i_curve , float i_Randomizer , int i_level)
+    private float ReturnValue(AnimationCurve i_curve , float i_Randomizer , int i_level)
     {
         int normalizedLevel = 0;
 
@@ -39,6 +39,6 @@ public class DifficultyManager : Singleton<DifficultyManager>
         o_value += Random.Range(- i_Randomizer, i_Randomizer);
         o_value = Mathf.Abs(o_value);   
 
-        return (int)o_value;
+        return o_value;
     }
 }

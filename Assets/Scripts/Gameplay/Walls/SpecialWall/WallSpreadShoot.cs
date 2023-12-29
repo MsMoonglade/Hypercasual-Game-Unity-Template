@@ -19,7 +19,7 @@ public class WallSpreadShoot : WallBehaviour
     {
         base.Take();
 
-        CharacterBehaviour.Instance.characterShooter.EnableSpreadShot();
+        CharacterBehaviour.instance.characterShooter.EnableSpreadShot();
     }
 
     public override void TakeHit(int i_value)
