@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Inventory : Singleton<Inventory>
 {
@@ -14,10 +11,10 @@ public class Inventory : Singleton<Inventory>
     public float columnSpacing;
 
     [Header("Grid Prefabs Object")]
-    public GameObject cellObject;
+    public GameObject cellPref;
 
     [Header("Project Reference")]
-    public GameObject objectToPopulateCell;
+    public GameObject objectToPopulateCellPref;
 
     [Header("Local Variables")]
     private Vector3 currentCellPos = Vector3.zero;
@@ -25,19 +22,22 @@ public class Inventory : Singleton<Inventory>
     [HideInInspector]
     public InventoryCells[,] cells;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        CenterGridLocalPositioning();   
+        CenterGridLocalPositioning();
         GenerateInventorySlots();
+    }
 
-        LoadCellValue();
+    public virtual void SaveCellsValue()
+    {
+
     }
 
     /// <summary>
     /// Check if you have empty Cell in Grid
     /// </summary>
     /// <returns></returns>
-    public bool HaveFreeCell()
+    public virtual bool HaveFreeCell()
     {
         foreach (var cell in cells)
         {
@@ -53,14 +53,14 @@ public class Inventory : Singleton<Inventory>
     /// </summary>
     /// <param name="i_amount"><amount of cells needed/param>
     /// <returns></returns>
-    public bool HaveFreeCell(int i_amount)
+    public virtual bool HaveFreeCell(int i_amount)
     {
         int freeCellCount = 0;
 
         foreach (var cell in cells)
         {
             if (cell.Empty)
-                freeCellCount ++;
+                freeCellCount++;
         }
 
         return (freeCellCount >= i_amount) ? true : false;
@@ -70,7 +70,7 @@ public class Inventory : Singleton<Inventory>
     /// Get First empty Cell of the Grid
     /// </summary>
     /// <returns></returns>
-    public InventoryCells ReturnFirstEmptyCell()
+    public virtual InventoryCells ReturnFirstEmptyCell()
     {
         foreach (var cell in cells)
         {
@@ -87,15 +87,15 @@ public class Inventory : Singleton<Inventory>
     private void CenterGridLocalPositioning()
     {
         //Center X Position if Column is Odd
-        if(column % 2 != 0)
+        if (column % 2 != 0)
         {
-            currentCellPos -= new Vector3((cellObject.GetComponent<InventoryCells>().xSize + columnSpacing) * (column -1) /2  , 0 , 0);
+            currentCellPos -= new Vector3((cellPref.GetComponent<InventoryCells>().xSize + columnSpacing) * (column - 1) / 2, 0, 0);
         }
 
         //Center Y Position if Row is Odd
         if (row % 2 != 0)
         {
-            currentCellPos += new Vector3(0, 0, (cellObject.GetComponent<InventoryCells>().ySize + rowSpacing) * (row - 1) / 2);
+            currentCellPos += new Vector3(0, 0, (cellPref.GetComponent<InventoryCells>().ySize + rowSpacing) * (row - 1) / 2);
         }
     }
 
@@ -110,53 +110,54 @@ public class Inventory : Singleton<Inventory>
         {
             for (int j = 0; j < column; j++)
             {
-                GameObject slot = Instantiate(cellObject, currentCellPos, Quaternion.identity, transform);
+                GameObject slot = Instantiate(cellPref, currentCellPos, Quaternion.identity, transform);
                 slot.transform.localPosition = currentCellPos;
                 slot.transform.localRotation = new Quaternion(0, 0, 0, 0);
 
-                cells[i,j] = slot.GetComponent<InventoryCells>();
-                cells[i,j].CellIndex = int.Parse(i.ToString() + j.ToString());
+                cells[i, j] = slot.GetComponent<InventoryCells>();
+                cells[i, j].CellIndex = int.Parse(i.ToString() + j.ToString());
 
-                currentCellPos += new Vector3(0, 0, cells[i,j].xSize + columnSpacing);
+                currentCellPos += new Vector3(0, 0, cells[i, j].xSize + columnSpacing);
             }
 
-            currentCellPos += new Vector3(cells[i,0].ySize + rowSpacing, 0, (-rowSpacing * (cells[i, 0].ySize + rowSpacing)));
+            currentCellPos += new Vector3(cells[i, 0].ySize + rowSpacing, 0, (-rowSpacing * (cells[i, 0].ySize + rowSpacing)));
         }
     }
 
-    private void LoadCellValue()
+    protected virtual void LoadCellValue(string i_saveName)
     {
-        List<CellComposition> savedCells = SaveManager.Instance.LoadCells(Saves.inventoryCellObjects);
+        List<CellComposition> savedCells = SaveManager.Instance.LoadCells(i_saveName);
 
         if (savedCells.Count == 0)
             return;
 
-        foreach(InventoryCells cell in cells)
+        foreach (InventoryCells cell in cells)
         {
-            foreach(CellComposition savedCell in savedCells)
+            foreach (CellComposition savedCell in savedCells)
             {
-                if(cell.CellIndex == savedCell.GetCellIndex)
+                if (cell.CellIndex == savedCell.GetCellIndex)
                 {
                     cell.CellValue = savedCell.GetCellValue;
                     break;
                 }
             }
-        }                      
+        }
     }
 
     /// <summary>
     /// Save Cell Value in Cell Index
     /// </summary>
-    private void SaveCellValue()
+    protected virtual void SaveCellValue(string i_saveName)
     {
         List<CellComposition> o_cellsList = new List<CellComposition>();
 
+        //convert from [,] to list for save the file easier
         foreach (InventoryCells cell in cells)
         {
             CellComposition newCell = new CellComposition(cell.CellIndex, cell.CellValue);
             o_cellsList.Add(newCell);
         }
 
-        SaveManager.Instance.Save(o_cellsList , Saves.inventoryCellObjects);
+        SaveManager.Instance.Save(o_cellsList, i_saveName);
     }
 }

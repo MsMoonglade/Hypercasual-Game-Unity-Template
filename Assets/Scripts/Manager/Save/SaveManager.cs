@@ -176,29 +176,6 @@ public class SaveManager : Singleton<SaveManager>
     }
 }
 
-public struct CellComposition
-{
-    private int index;
-    private int value;
-
-    public int GetCellIndex
-    {
-        get { return index; }
-    }
-
-    public int GetCellValue
-    {
-        get { return value;}
-    }
-
-    public CellComposition(int i_index , int i_value)
-    {
-        index = i_index;
-        value = i_value;
-    }
-}
-
-
 
 /*
 public void Save(int i_cellIndex, int i_valueToSave)
