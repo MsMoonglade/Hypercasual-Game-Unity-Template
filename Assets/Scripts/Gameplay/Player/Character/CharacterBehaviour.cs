@@ -27,6 +27,8 @@ public class CharacterBehaviour : MonoBehaviour
     public CharacterShooter characterShooter;
     [HideInInspector]
     public CharacterUi characterUi;
+    [HideInInspector]
+    public PlayerInventory inventory;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class CharacterBehaviour : MonoBehaviour
         characterMover = transform.GetComponent<CharacterMover>();
         characterShooter = transform.GetComponent<CharacterShooter>();
         characterUi = transform.GetComponent<CharacterUi>();
+        inventory = transform.GetComponent<PlayerInventory>();
     }
 
     private void OnEnable()

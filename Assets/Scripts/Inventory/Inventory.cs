@@ -28,10 +28,10 @@ public class Inventory : Singleton<Inventory>
         GenerateInventorySlots();
     }
 
-    public virtual void SaveCellsValue()
-    {
-
-    }
+    /// <summary>
+    /// save all inventory in game cells value
+    /// </summary>
+    public virtual void SaveCellsValue() { }  
 
     /// <summary>
     /// Check if you have empty Cell in Grid

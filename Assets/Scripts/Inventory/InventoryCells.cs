@@ -8,7 +8,7 @@ public class InventoryCells : MonoBehaviour
     public float xSize, ySize;
 
     [HideInInspector]
-    public GameObject contain;
+    public InventoryItem contain;
 
     public int CellIndex {  get; set; }
 
@@ -62,7 +62,7 @@ public class InventoryCells : MonoBehaviour
             }
 
             GameObject newObj = Instantiate(Inventory.Instance.objectToPopulateCellPref, transform.position, Quaternion.identity, transform);
-            contain = newObj;
+            contain = newObj.GetComponent<InventoryItem>();
         }
 
         //ThisMethod should be in the class of object in cell
@@ -81,15 +81,15 @@ public class InventoryCells : MonoBehaviour
             i_obj.transform.position = transform.position;
             i_obj.transform.rotation = transform.rotation;
             i_obj.transform.localScale = new Vector3(1, 1, 1);
-            contain = i_obj;
+            contain = i_obj.GetComponent<InventoryItem>();
         }
 
         else
         {
             //ThisMethod should be in the class of object in cell
-            // int o_valueToAdd = i_obj.value ;
-            
-            int o_valueToAdd = 0;
+            // merge objects and increase old one  value ;            
+
+            int o_valueToAdd = 1;
             contain.SendMessage("UpdateValue", o_valueToAdd);
         }
 
@@ -101,16 +101,15 @@ public class InventoryCells : MonoBehaviour
     /// Remove Object From Cell
     /// </summary>
     /// <returns></returns>
-    public GameObject RemoveFromCell()
+    public InventoryItem RemoveFromCell()
     {
-        GameObject o_return = contain;
+        InventoryItem o_return = contain;
 
         contain = null;
 
         return o_return;
     }
 }
-
 
 public struct CellComposition
 {
