@@ -50,6 +50,8 @@ public class PlayerInventory : Inventory
             o_valueToReturn = items[shootIndex].Value;       
 
         IncreaseShootIndex();
+        AnimateInvObjects();
+
         return o_valueToReturn;
     }
 

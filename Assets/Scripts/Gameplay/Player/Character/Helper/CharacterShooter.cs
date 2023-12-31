@@ -93,14 +93,24 @@ public class CharacterShooter : MonoBehaviour
     /// </summary>
     private void Shoot(Quaternion i_rot)
     {
+        //Vibrate Device
         if (DeviceCapabilities.isVersionSupported)
         {
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
         }
 
         GameObject bullet = PoolManager.Instance.GetPooledItem(bulletPrefs, shootPosition.transform.position);
-        bullet.transform.rotation = i_rot;    
-        bullet.GetComponent<BulletBehaviour>().Init();
+        bullet.transform.rotation = i_rot;
+
+        //call normal shoot if not have and inventory else call with first inv value
+        if (characterBehaviour.inventory == null)
+            bullet.GetComponent<BulletBehaviour>().Init();
+        
+        else
+        {
+            int invValue = characterBehaviour.inventory.ReturnFirstElementValue();
+            bullet.GetComponent<BulletBehaviour>().Init(invValue);
+        }
     }
 
     /// <summary>
