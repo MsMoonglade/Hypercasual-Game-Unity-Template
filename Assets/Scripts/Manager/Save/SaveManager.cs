@@ -25,6 +25,16 @@ public class SaveManager : Singleton<SaveManager>
     }
 
     /// <summary>
+    /// Save a string at given name
+    /// </summary>
+    /// <param name="i_value"><Value To Save/param>
+    /// <param name="i_saveName"><Save Name/param>
+    public void Save(string i_value, string i_saveName)
+    {
+        PlayerPrefs.SetString(i_saveName, i_value);
+    }
+
+    /// <summary>
     /// Save an float at given name
     /// </summary>
     /// <param name="i_value"><Value To Save/param>
@@ -84,6 +94,22 @@ public class SaveManager : Singleton<SaveManager>
         else
         {
             return 0;
+        }
+    }
+
+    /// <summary>
+    /// Return string at Given Name
+    /// </summary>
+    /// <param name="i_savedName"><given saved name/param>
+    /// <returns></returns>
+    public string LoadString(string i_savedName)
+    {
+        if (PlayerPrefs.HasKey(i_savedName))
+            return PlayerPrefs.GetString(i_savedName);
+
+        else
+        {
+            return "";
         }
     }
 
