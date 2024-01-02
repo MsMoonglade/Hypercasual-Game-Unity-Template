@@ -14,6 +14,7 @@ public class EndGameBehaviour : Singleton<EndGameBehaviour>
     [Header("Local References")]
     public Canvas endGameCanvas;
 
+    public CinemachineVirtualCamera endGameCamera;
 
     [Header("Private References")]
     private Coroutine startEndGameCoroutine;

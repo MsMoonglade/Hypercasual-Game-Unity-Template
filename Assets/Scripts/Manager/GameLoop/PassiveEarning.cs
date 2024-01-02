@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PassiveEarning : Singleton<PassiveEarning>
+public class PassiveEarning : SingletonPersistent<PassiveEarning>
 { 
     public int GoldPerHour {  get; private set; }   
 
