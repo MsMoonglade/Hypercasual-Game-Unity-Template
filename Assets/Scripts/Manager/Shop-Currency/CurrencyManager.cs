@@ -28,6 +28,8 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
     public void AddGold(int i_amount)
     {
+        UiManager.Instance.instantiator.InstantiateElementInUi(i_amount, 0);
+
         CurrencyGold += i_amount;
     }
 

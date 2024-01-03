@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 993511592260757478}
   - component: {fileID: 4153668169093682180}
   m_Layer: 6
-  m_Name: Obstacles_Set
+  m_Name: EndGame_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -97,7 +97,8 @@ public class BulletBehaviour : MonoBehaviour
         model.gameObject.SetActive(true);
         col.enabled = true;
 
-        enable_Particle.Play();
+        if(enable_Particle != null)        
+            enable_Particle.Play();
 
         disableCoroutine = StartCoroutine(DisableCoroutine(CharacterBehaviour.instance.characterShooter.bulletActiveTime));
         StartCoroutine(MoveForward());
@@ -110,7 +111,8 @@ public class BulletBehaviour : MonoBehaviour
         transform.rotation = new Quaternion(0, 0, 0, 0);
         col.enabled = false;
 
-        disable_Particle.Play();
+        if(disable_Particle != null)        
+            disable_Particle.Play();
 
         StartCoroutine(DisableObjectWithDelay(1));
     }

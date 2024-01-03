@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,10 +23,15 @@ public class LevelPopulator : MonoBehaviour
     public GameObject floorObject;
 
     [Header("Project References")]
+    public GameObject endGamePref;
     public GameObject[] possibleWall;
     public GameObject[] possibleInteractable;
     public GameObject[] possibleMixed;
 
+    /// <summary>
+    /// Generate Current Level Based On Level
+    /// </summary>
+    /// <param name="i_currentLevel"><current Level/param>
     public void PopulateLevel(int i_currentLevel)
     {
         float levelLenght = EvaluateLevelLenght(i_currentLevel);
@@ -39,7 +45,7 @@ public class LevelPopulator : MonoBehaviour
         for (int i = 0; i < levelPieces; i++)
         {
             //GENERATE WALL
-            float levelElementPercentage = Random.Range(0f, 1f);
+            float levelElementPercentage = UnityEngine.Random.Range(0f, 1f);
 
             if (levelElementPercentage <= wall_PercentageSpawnRate)
             {
@@ -67,22 +73,37 @@ public class LevelPopulator : MonoBehaviour
             elementPosition += new Vector3(0, 0, gameplayElement_DistanceOffset);
         }
 
-        //GENERATE END GAME
+        //Set Floor At correct Z Pos
         elementPosition += new Vector3(0, 0, endElement_DistanceOffset);
         floorObject.transform.position = elementPosition;
+
+        //Spawn End Game Element
+        GameObject endGame = Instantiate(endGamePref, Vector2.zero, Quaternion.identity, transform);
+        endGame.transform.position = elementPosition;
 
         //Each Gameplay Element Recive this Event and Take the difficulty
         EventManager.TriggerEvent(Events.setDifficulty);
     }
 
+    /// <summary>
+    /// Instantiate Random Element From an array in a parent
+    /// </summary>
+    /// <param name="possiblePool"><pool from where pick random item/param>
+    /// <param name="parent"><new object parent/param>
+    /// <returns></returns>
     private GameObject PickRandomElement(GameObject[] possiblePool, GameObject parent)
     {
-        int index = Random.Range(0, possiblePool.Length);
+        int index = UnityEngine.Random.Range(0, possiblePool.Length);
 
         GameObject o = Instantiate(possiblePool[index], Vector2.zero, Quaternion.identity, parent.transform);
         return o;
     }
 
+    /// <summary>
+    /// Calculate Level Lenght based on current Level
+    /// </summary>
+    /// <param name="i_level"><current Level/param>
+    /// <returns></returns>
     private float EvaluateLevelLenght(int i_level)
     {
         int fixedLevel = 0;

@@ -1,19 +1,17 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using DG.Tweening;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-public class EndGameSingleObstacle : MonoBehaviour
+public class EndGameObstacle : MonoBehaviour
 {
     [Header("Variables")]
     public float disableAnimationSpeed;
 
     [Header("Local References")]
     public TMP_Text hpText;
-    public GameObject coinParent;
-    public GameObject rewardObject;
+    public GameObject localRewardObject;
 
     [Header("Private Variables")]
     private bool enable;
@@ -24,6 +22,10 @@ public class EndGameSingleObstacle : MonoBehaviour
     [HideInInspector]
     public int hp;
 
+    /// <summary>
+    /// Set Starting Hp when Enables
+    /// </summary>
+    /// <param name="i_value"><new Hp Value/param>
     public void SetHp(int i_value)
     {
         hp = i_value;
@@ -37,9 +39,9 @@ public class EndGameSingleObstacle : MonoBehaviour
     {
         hp--;
 
-        TweenScale(1.1f , 0.25f);
+        TweenScale(1.1f, 0.25f);
 
-        CheckHp();  
+        CheckHp();
 
         UpdateUi();
     }
@@ -51,33 +53,39 @@ public class EndGameSingleObstacle : MonoBehaviour
 
         if (hp == 0 && enable)
         {
-            Disable(5 , 0.5f);
+            Disable(5, 0.5f);
         }
     }
 
-    private void Disable(float i_yPos , float i_tweenTime)
+    /// <summary>
+    /// Actual Disable Animation
+    /// </summary>
+    /// <param name="i_yPos"><Y lower position when anim/param>
+    /// <param name="i_tweenTime"><anim time/param>
+    private void Disable(float i_yPos, float i_tweenTime)
     {
         enable = false;
 
         col.enabled = false;
 
-        transform.DOLocalMoveY(-i_yPos, i_tweenTime)    
+        transform.DOLocalMoveY(-i_yPos, i_tweenTime)
             .SetEase(Ease.InBack);
-
-        //rewardObject.transform.GetComponent<CollectablesEndGameCoin>().SetCanBeTaken(true);
 
         Sequence mySequence = DOTween.Sequence();
         mySequence.PrependInterval(i_tweenTime * 0.25f);
 
-        mySequence.AppendCallback(() => rewardObject.transform.SetParent(transform.parent.transform.parent, true));
+        mySequence.AppendCallback(() => localRewardObject.transform.SetParent(transform.parent.transform.parent, true));
 
-        mySequence.Append(rewardObject.transform.DOMoveY(0.5f, i_tweenTime)
-            .SetEase(Ease.InBack));  
-
-            //.OnComplete(() => this.gameObject.SetActive(false));
+        mySequence.Append(localRewardObject.transform.DOMoveY(0.5f, i_tweenTime)
+            .SetEase(Ease.InBack));
     }
 
-    private void TweenScale(float i_newSize , float i_tweenTime)
+    /// <summary>
+    /// Take Hit Feedback
+    /// </summary>
+    /// <param name="i_newSize"></param>
+    /// <param name="i_tweenTime"></param>
+    private void TweenScale(float i_newSize, float i_tweenTime)
     {
         transform.DOScale(1, 0);
         transform.DOScale(i_newSize, i_tweenTime)
@@ -85,7 +93,7 @@ public class EndGameSingleObstacle : MonoBehaviour
     }
 
     private void UpdateUi()
-    {       
+    {
         hpText.text = hp.ToString();
     }
 }

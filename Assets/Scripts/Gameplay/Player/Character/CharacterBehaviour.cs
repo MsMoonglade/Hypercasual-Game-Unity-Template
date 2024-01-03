@@ -69,14 +69,14 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (col.transform.CompareTag("EndGame"))
         {
-            OnEnterEndGame();
+            EnterEndGame();
         }
     }
 
     /// <summary>
     /// Caharacter Actually Start the end Game 
     /// </summary>
-    private void OnEnterEndGame()
+    private void EnterEndGame()
     {   
         EndGameBehaviour.Instance.StartEndGame();
     }   

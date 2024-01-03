@@ -6,18 +6,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(EndGameReward))]
 public class EndGameBehaviour : Singleton<EndGameBehaviour>
 {
-    [Header("Variables")]
-    public AnimationCurve endLevelCoinReward;
-
     [Header("Local References")]
     public Canvas endGameCanvas;
 
-    public CinemachineVirtualCamera endGameCamera;
-
     [Header("Private References")]
     private Coroutine startEndGameCoroutine;
+
+    private CinemachineVirtualCamera endGameCamera;
+    private EndGameCharacter endGameCharacter;
 
     private void Awake()
     {
@@ -28,7 +27,18 @@ public class EndGameBehaviour : Singleton<EndGameBehaviour>
 
     private void Start()
     {
-        CameraManager.Instance.endGameCamera = transform.GetComponentInChildren<CinemachineVirtualCamera>();
+        endGameCamera = transform.GetComponentInChildren<CinemachineVirtualCamera>();      
+        endGameCharacter = transform.GetComponentInChildren<EndGameCharacter>();
+
+        Transform objToFollow;
+        objToFollow = (endGameCharacter == null) ? CharacterBehaviour.instance.transform  : endGameCharacter.transform;
+
+        CameraManager.Instance.endGameCamera = endGameCamera;
+    }
+
+    public void HandleEndGameVictory()
+    {
+        transform.GetComponent<EndGameReward>().GiveRewards();
     }
 
     /// <summary>

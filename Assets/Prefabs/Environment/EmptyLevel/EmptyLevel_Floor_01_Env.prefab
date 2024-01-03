@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7998241323478405361}
   m_Layer: 0
-  m_Name: EmptyLevel_01_Env
+  m_Name: EmptyLevel_Floor_01_Env
   m_TagString: EndElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

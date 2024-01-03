@@ -117,6 +117,7 @@ public class GameManager : Singleton<GameManager>
     {
         UiManager.Instance.ChangeState(UiState.EndGame);
 
+        EndGameBehaviour.Instance.HandleEndGameVictory();
         LevelManager.Instance.CurrentLevel++;        
     }
 
