@@ -26,6 +26,6 @@ I acknowledge this and i'm actively working to enhance the framework's organizat
 
 ## Acknowledgments
 
-We appreciate your interest in the Hypercasual Game Framework. Your feedback and contributions play a vital role in shaping the future of this project.
+I appreciate your interest in the Hypercasual Game Framework. Your feedback and contributions play a vital role in shaping the future of this project.
 
 Happy coding!
