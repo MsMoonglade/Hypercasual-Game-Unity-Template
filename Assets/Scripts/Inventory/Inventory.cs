@@ -126,7 +126,7 @@ public class Inventory : Singleton<Inventory>
 
     protected virtual void LoadCellValue(string i_saveName)
     {
-        List<CellComposition> savedCells = SaveManager.Instance.LoadCells(i_saveName);
+        List<CellComposition> savedCells = SaveManager.Instance.Load<List<CellComposition>>(i_saveName);
 
         if (savedCells.Count == 0)
             return;
@@ -149,15 +149,24 @@ public class Inventory : Singleton<Inventory>
     /// </summary>
     protected virtual void SaveCellValue(string i_saveName)
     {
-        List<CellComposition> o_cellsList = new List<CellComposition>();
+        List<CellComposition> cellsList = new List<CellComposition>();
 
         //convert from [,] to list for save the file easier
         foreach (InventoryCells cell in cells)
         {
             CellComposition newCell = new CellComposition(cell.CellIndex, cell.CellValue);
-            o_cellsList.Add(newCell);
+            cellsList.Add(newCell);
         }
 
-        SaveManager.Instance.Save(o_cellsList, i_saveName);
+        int[] o_cellValue = new int[cellsList.Count];
+        int[] o_cellIndex = new int[cellsList.Count];
+
+        for(int i = 0; i < cellsList.Count; i++)
+        {
+            o_cellValue[i] = cellsList[i].GetCellValue;
+            o_cellIndex[i] = cellsList[i].GetCellIndex;
+        }
+
+        SaveManager.Instance.Save(o_cellValue , o_cellIndex, i_saveName);
     }
 }

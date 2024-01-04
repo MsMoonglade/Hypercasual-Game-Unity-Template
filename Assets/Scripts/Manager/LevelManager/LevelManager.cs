@@ -45,7 +45,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Load() 
     {
-        CurrentLevel = SaveManager.Instance.LoadInt(Saves.currentLevel);
+        CurrentLevel = SaveManager.Instance.Load<int>(Saves.currentLevel);
 
         if (CurrentLevel == 0)
             CurrentLevel = 1;

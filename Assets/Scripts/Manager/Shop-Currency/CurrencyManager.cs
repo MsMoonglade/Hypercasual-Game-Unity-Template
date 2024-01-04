@@ -53,6 +53,6 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
     private void LoadCurrencies()
     {
-        CurrencyGold = SaveManager.Instance.LoadInt(Currency.currency_Gold);
+        CurrencyGold = SaveManager.Instance.Load<int>(Currency.currency_Gold);
     }
 }

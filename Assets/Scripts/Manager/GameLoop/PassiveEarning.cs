@@ -26,7 +26,7 @@ public class PassiveEarning : SingletonPersistent<PassiveEarning>
 
     private int GetPassedHour()
     {
-        string savedTime = SaveManager.Instance.LoadString(Saves.lastLogin);
+        string savedTime = SaveManager.Instance.Load<string>(Saves.lastLogin);
                 
         DateTime oldLogin = System.DateTime.Parse(savedTime);
         DateTime currentLogin = System.DateTime.Now;

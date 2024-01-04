@@ -13,7 +13,7 @@ public class EndGameBestScoreFlag : MonoBehaviour
 
     private void Awake()
     {
-        currentBestScore = SaveManager.Instance.LoadInt(Saves.endGameFlagScore);          
+        currentBestScore = SaveManager.Instance.Load<int>(Saves.endGameFlagScore);          
         transform.localPosition = new Vector3(0, 0, currentBestScore);    
     }
 
