@@ -38,7 +38,7 @@ public class UiManager : Singleton<UiManager>
     {
         base.Awake();
 
-        instantiator.transform.GetComponent<UiInstantiateObject>();
+        instantiator = transform.GetComponent<UiInstantiateObject>();
         uiCurrency = transform.GetComponent<UiCurrency>();
         uiRefresh = transform.GetComponent<UiRefresh>();
         uiFeedback = transform.GetComponent<UiFeedback>();

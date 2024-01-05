@@ -4,13 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - EndElement
   - VirtualCamera
-  - Tower
   - Wall
-  - EndMiniGame
-  - EndGameObstacles
   - Bullet
+  - EndGame
+  - Interactable
+  - MidSegment
+  - Obstacles
+  - Tower
   layers:
   - Default
   - TransparentFX

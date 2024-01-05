@@ -131,7 +131,30 @@ public class SaveManager : Singleton<SaveManager>
             }
         }
 
-        Debug.LogWarning("You don't have this saved name");
+        //if have nothing to return init new one and return that
+        else
+        {
+            Debug.LogWarning("Added New Initialized Save : " + i_savedName);
+
+            if (typeof(T) == typeof(int))
+            {
+                PlayerPrefs.SetInt(i_savedName, 0);
+                return (T)(object)0;
+            }
+
+            if (typeof(T) == typeof(float))
+            {
+                PlayerPrefs.SetFloat(i_savedName, 0f);
+                return (T)(object)0f;
+            }
+
+            if (typeof(T) == typeof(string))
+            {
+                PlayerPrefs.SetString(i_savedName, "");
+                return (T)(object)"";
+            }
+        }
+
         return (T)(object)default;
     }
 
