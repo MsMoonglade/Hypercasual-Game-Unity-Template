@@ -4,17 +4,25 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PassiveEarning : SingletonPersistent<PassiveEarning>
+public class OfflineEarning : SingletonPersistent<OfflineEarning>
 { 
-    public int GoldPerHour {  get; private set; }   
+    public int GoldPerHour {  get; private set; }
 
+    private int offlineEarningAmount;
 
     protected override void Awake()
     {
         base.Awake();
+
+        offlineEarningAmount = GetOfflineEarningAmount();
     }
 
-    public int GetPassiveEarning()
+    public void ClaimOfflineEarning()
+    {
+        CurrencyManager.Instance.AddGold(offlineEarningAmount);
+    }
+
+    private int GetOfflineEarningAmount()
     {
         if (!PlayerPrefs.HasKey(Saves.lastLogin))
         {

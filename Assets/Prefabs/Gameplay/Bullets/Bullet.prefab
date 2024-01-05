@@ -4895,7 +4895,7 @@ GameObject:
   - component: {fileID: 6184389968253960251}
   - component: {fileID: 1452473481162217177}
   m_Layer: 14
-  m_Name: Money_Bullet
+  m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

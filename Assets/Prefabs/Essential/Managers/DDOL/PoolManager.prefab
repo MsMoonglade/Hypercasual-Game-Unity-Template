@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool:
-  - obj_Prefs: {fileID: 0}
-    obj_Parent_Name: 
-    initial_quantity: 0
+  - obj_Prefs: {fileID: 3205116958908302363, guid: 6f92ff68848dbfb479e3214fde82cd8c, type: 3}
+    obj_Parent_Name: Bullet_Pool
+    initial_quantity: 15
   poolParents: []

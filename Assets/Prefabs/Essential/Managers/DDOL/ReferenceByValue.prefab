@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40de221357a4cfb408e0239332bb6c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 0
-  valueSegment: 0
+  valueSegment: 1
   possibleMats: []
   possibleColor: []

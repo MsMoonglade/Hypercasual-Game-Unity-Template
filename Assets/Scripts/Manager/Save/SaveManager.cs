@@ -24,19 +24,19 @@ public class SaveManager : Singleton<SaveManager>
     {
         if (typeof(T) == typeof(int))
         {
-            Debug.Log("Save a Int");
+            Debug.Log("Save a Int " + i_savedName);
             PlayerPrefs.SetInt(i_savedName, Convert.ToInt32(i_save));
         }
 
         if (typeof(T) == typeof(float))
         {
-            Debug.Log("Save a float");
+            Debug.Log("Save a float " + i_savedName);
             PlayerPrefs.SetFloat(i_savedName, (float)Convert.ToDecimal(i_save));
         }
 
         if (typeof(T) == typeof(string))
         {
-            Debug.Log("Save a string");
+            Debug.Log("Save a string " + i_savedName);
             PlayerPrefs.SetString(i_savedName, Convert.ToString(i_save));
         }       
     }
@@ -51,7 +51,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         if (typeof(T) == typeof(int) && i_index.Length == 0)
         {
-            Debug.Log("Save a Int[]");
+            Debug.Log("Save a Int[] " + i_savedName);
 
             int[] valueToSave = new int[i_value.Length];
 
@@ -68,7 +68,7 @@ public class SaveManager : Singleton<SaveManager>
 
         if (typeof(T) == typeof(int) && i_index.Length >= 1)
         {
-            Debug.Log("Save a List<CellComposition>");
+            Debug.Log("Save a List<CellComposition> " + i_savedName);
 
             string[] cellsData = new string[i_value.Length];
             for (int i = 0; i < cellsData.Length; i++)
