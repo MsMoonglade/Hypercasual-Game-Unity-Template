@@ -54,7 +54,4 @@ MonoBehaviour:
   - {fileID: 4793364534207707259, guid: c3c0b097ed3634c4a82de24c08fea7b0, type: 3}
   - {fileID: 4793364534207707259, guid: 670029b5e73ba4d498a61a20df48e764, type: 3}
   possibleGameplayElement:
-  - {fileID: 5207588132318349843, guid: 64fa8b5f6e7a1b84f95323353f6e766d, type: 3}
-  - {fileID: 4637122089520521460, guid: 48b0a602a3f96b047a8900a3eeb5cbd8, type: 3}
-  - {fileID: 9045410005493646615, guid: 2cb6939abf11718448d90b39fc2e74d3, type: 3}
-  - {fileID: 9045410005493646615, guid: 26f317391efb2c54ba6d644b1afc7e91, type: 3}
+  - {fileID: 4793364534207707259, guid: b101c2688400bea4da0d14930dcf1254, type: 3}

@@ -137,6 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7998241323478405361}
+  - component: {fileID: 764818689709665194}
   m_Layer: 0
   m_Name: EmptyLevel_Floor_01_Env
   m_TagString: Untagged
@@ -162,6 +163,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764818689709665194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7998241323478405360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a598a871a4de36f4b99fad2c6b0f9adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8414429845900845444
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 639b7fba212254340b45c248d909405d, type: 2}
+  - {fileID: 2100000, guid: 8e055af2ef0a44f4b948b6da2833d249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,7 +302,7 @@ GameObject:
   - component: {fileID: 8414429846053404136}
   - component: {fileID: 8414429846053404137}
   m_Layer: 0
-  m_Name: Floor (1)
+  m_Name: 'Floor '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +427,7 @@ GameObject:
   - component: {fileID: 8414429846268776924}
   - component: {fileID: 8414429846268776925}
   m_Layer: 0
-  m_Name: Side (1)
+  m_Name: 'Side '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,7 +639,7 @@ GameObject:
   - component: {fileID: 8414429847450459305}
   - component: {fileID: 8414429847450459302}
   m_Layer: 0
-  m_Name: Side (2)
+  m_Name: Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

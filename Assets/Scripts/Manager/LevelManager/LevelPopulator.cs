@@ -20,7 +20,7 @@ public class LevelPopulator : MonoBehaviour
     public GameObject wallParent;
     public GameObject interactableParent;
     public GameObject mixedParent;
-    public GameObject floorObject;
+    private GameObject floorObject;
 
     [Header("Project References")]
     public GameObject endGamePref;
@@ -75,7 +75,13 @@ public class LevelPopulator : MonoBehaviour
 
         //Set Floor At correct Z Pos
         elementPosition += new Vector3(0, 0, endElement_DistanceOffset);
-        floorObject.transform.position = elementPosition;
+
+        floorObject = FindObjectOfType<LevelFloorReference>().gameObject;
+
+        if (floorObject != null)
+            floorObject.transform.position = elementPosition;
+        else
+            Debug.LogWarning("You don't have floor reference");
 
         //Spawn End Game Element
         GameObject endGame = Instantiate(endGamePref, Vector2.zero, Quaternion.identity, transform);

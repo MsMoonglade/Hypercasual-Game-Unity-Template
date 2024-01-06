@@ -11,11 +11,13 @@ public class CharacterUi : MonoBehaviour
 
     private void Awake()
     {
-        characterCanvasPanel.alpha = 0;
+        if(characterCanvasPanel != null)        
+            characterCanvasPanel.alpha = 0;
     }
 
     private void RefreshCharacterUi()
     {
-        characterValueText.text = "Character Value";
+        if(characterValueText != null)        
+            characterValueText.text = "Character Value";
     }
 }

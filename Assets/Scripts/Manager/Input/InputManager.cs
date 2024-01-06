@@ -11,11 +11,23 @@ public class InputManager : Singleton<InputManager>
     private Vector2 inputDirection;
 
     void Update()
-    {
+    {              
         //if Input in main Menu Start The Game
         if (GameManager.Instance.IsInGame || GameManager.Instance.IsInMainMenu)
         {
+
+#if UNITY_IOS || UNITY_ANDROID
+            
             InGameSwipe();
+
+#endif
+
+#if UNITY_EDITOR
+
+            SwipeMovingEditor();
+
+#endif
+        
         }
     }
 
@@ -43,13 +55,16 @@ public class InputManager : Singleton<InputManager>
     }
     
     //DEBUG INPUT IN GAME VIEW
-    /*
-    //DEBUG
-    private void SwipeMoving()
+    private void SwipeMovingEditor()
     {
         //start
         if (Input.GetMouseButtonDown(0))
         {
+            if (GameManager.Instance.IsInMainMenu)
+            {
+                GameManager.Instance.StartGame();
+            }
+
             oldInputPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
 
@@ -58,7 +73,7 @@ public class InputManager : Singleton<InputManager>
         {
             inputDirection = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - oldInputPos).normalized;
             
-            CharacterBehaviour.instance.characterMover.Move(new Vector3(inputDirection.x * m_InputSensitivity, 0, inputDirection.y));
+            CharacterBehaviour.instance.characterMover.HorizontalMove(new Vector3(inputDirection.x * InputSensitivity, 0, inputDirection.y));
             
             oldInputPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
@@ -68,8 +83,7 @@ public class InputManager : Singleton<InputManager>
         {
             oldInputPos = Vector2.zero;
             inputDirection = Vector3.zero;              
-            CharacterBehaviour.instance.characterMover.Move(Vector3.zero);
+            CharacterBehaviour.instance.characterMover.HorizontalMove(Vector3.zero);
         }
     }    
-    */
 }

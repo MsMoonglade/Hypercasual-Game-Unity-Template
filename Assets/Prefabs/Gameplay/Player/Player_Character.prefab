@@ -458,12 +458,12 @@ GameObject:
   - component: {fileID: 2061955351}
   - component: {fileID: 2061955352}
   m_Layer: 3
-  m_Name: PlayerValuePanel
+  m_Name: Player_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2061955351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10327,7 +10327,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 3, z: 0.75}
+  m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5499896078592063822
 MonoBehaviour:
@@ -10360,13 +10360,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e95735ec2a66f43b10a782e2c4da28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardMoveSpeed: 0
-  horMoveSpeed: 0
-  moveXLimit: 0
-  hitObstacles_jumpLenght: 0
-  hitObstacles_jumpHeight: 0
-  hitObstacles_jumpDuration: 0
-  hitObstacles_jumpDelay: 0
+  forwardMoveSpeed: 10
+  horMoveSpeed: 10
+  moveXLimit: 3.5
+  hitObstacles_jumpLenght: 5
+  hitObstacles_jumpHeight: 2
+  hitObstacles_jumpDuration: 1
+  hitObstacles_jumpDelay: 1.5
 --- !u!114 &3535767660547983609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10397,7 +10397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterCanvasPanel: {fileID: 2061955352}
-  characterValueText: {fileID: 1153231355}
+  characterValueText: {fileID: 0}
 --- !u!1 &5499896079937454298
 GameObject:
   m_ObjectHideFlags: 0
@@ -10483,8 +10483,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5499896080690425688}
-  - component: {fileID: 1802116476}
-  - component: {fileID: 1802116477}
   m_Layer: 3
   m_Name: Models
   m_TagString: Player
@@ -10508,35 +10506,6 @@ Transform:
   m_Father: {fileID: 5499896078592063821}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1802116476
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499896080690425691}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &1802116477
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499896080690425691}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5, y: 2, z: 1}
-  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &7833414644149371396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10548,7 +10517,6 @@ GameObject:
   - component: {fileID: 6113568687241128878}
   - component: {fileID: 4290752476269963315}
   - component: {fileID: 2674389290819445237}
-  - component: {fileID: 1408783827369066591}
   m_Layer: 3
   m_Name: Base_Model
   m_TagString: Untagged
@@ -10599,7 +10567,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 67bd57fa7257a2c45bf01477a85096aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10621,19 +10589,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1408783827369066591
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7833414644149371396}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7870719274951305292
 GameObject:
   m_ObjectHideFlags: 0

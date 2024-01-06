@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
     {
         get
         {
-            if (State == GameState.InGame)
+            if (State == GameState.InMainMenu)
                 return true;
             else
                 return false;

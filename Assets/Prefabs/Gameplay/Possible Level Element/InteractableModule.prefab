@@ -46,5 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPositionRange: 3
   possibleInteractable:
-  - {fileID: 5207588132318349843, guid: 64fa8b5f6e7a1b84f95323353f6e766d, type: 3}
-  - {fileID: 4637122089520521460, guid: 48b0a602a3f96b047a8900a3eeb5cbd8, type: 3}
+  - {fileID: 4793364534207707259, guid: b101c2688400bea4da0d14930dcf1254, type: 3}

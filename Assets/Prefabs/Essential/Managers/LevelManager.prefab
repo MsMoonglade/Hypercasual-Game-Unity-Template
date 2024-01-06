@@ -126,18 +126,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableIndex:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 25
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  interactableRandomizer: 0
+  interactableRandomizer: 0.15
   wallIndex:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 25
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wallRandomizer: 0
+  wallRandomizer: 0.15
 --- !u!114 &4688375274218102955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,24 +188,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelLenght:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 100
+      inSlope: 8.333333
+      outSlope: 8.333333
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 25
+      value: 300
+      inSlope: 8.333333
+      outSlope: 8.333333
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  gameplayElement_StartPosOffset: 0
-  gameplayElement_DistanceOffset: 0
-  endElement_DistanceOffset: 0
-  wall_PercentageSpawnRate: 0
-  interactable_PercentageSpawnRate: 0
-  mixed_PercentageSpawnRate: 0
+  gameplayElement_StartPosOffset: 15
+  gameplayElement_DistanceOffset: 10
+  endElement_DistanceOffset: 15
+  wall_PercentageSpawnRate: 0.33
+  interactable_PercentageSpawnRate: 0.33
+  mixed_PercentageSpawnRate: 0.33
   wallParent: {fileID: 5766648231321598273}
   interactableParent: {fileID: 5766648230625322056}
   mixedParent: {fileID: 7814846189691605762}
-  floorObject: {fileID: 0}
   endGamePref: {fileID: 6842948429996828922, guid: 0aae0d68a9462994c846143b886abb95, type: 3}
-  possibleWall: []
-  possibleInteractable: []
-  possibleMixed: []
+  possibleWall:
+  - {fileID: 3899854861634813377, guid: 169f77ddc618dc44780ee04e16d41f43, type: 3}
+  possibleInteractable:
+  - {fileID: 5857339145955345972, guid: c44cf10e505055241896e7c9914d9ca5, type: 3}
+  possibleMixed:
+  - {fileID: 2488624264267318942, guid: 957a90eb6c9f0a04694b7a8fb835c1fa, type: 3}
 --- !u!1 &5766648231321598273
 GameObject:
   m_ObjectHideFlags: 0
