@@ -34,13 +34,19 @@ public class LevelManager : Singleton<LevelManager>
 
     public void GenerateLevel()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        string currentSceneName = SceneManager.GetActiveScene().name;
 
-        if (currentScene != SceneManager.sceneCount - 2)
+        if (!currentSceneName.Contains("Randomizer"))
+        {
+            Debug.Log("This is a Premade Level Scene");
             return;
+        }
 
-        else        
-            transform.GetComponent<LevelPopulator>().PopulateLevel(CurrentLevel);                
+        else
+        {
+            Debug.Log("Generating New Level");
+            transform.GetComponent<LevelPopulator>().PopulateLevel(CurrentLevel);
+        }
     }
 
     private void Load() 

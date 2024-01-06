@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameState State { get; private set; }
+    public GameState State { get; private set; } = GameState.Null;
 
     public bool IsInGame
     {
@@ -40,11 +40,14 @@ public class GameManager : Singleton<GameManager>
     public void ChangeState(GameState newState)
     {
         if (State == newState)
+        {
+            Debug.LogWarning("you already are in this Game State");
             return;
+        }
 
         State = newState;
 
-        switch (newState)
+        switch (State)
         {
             case GameState.Starting:
                 HandleStarting();
@@ -163,6 +166,7 @@ public class GameManager : Singleton<GameManager>
 [Serializable]
 public enum GameState
 {
+    Null = -1,
     Starting = 0,
     SpawningLevel = 1,
     InMainMenu = 2,
