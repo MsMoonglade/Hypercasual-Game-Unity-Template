@@ -12,6 +12,8 @@ TagManager:
   - MidSegment
   - Obstacles
   - Tower
+  - EndMiniGame
+  - EndGameObstacles
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wall
+  - Bullet
+  - Interactable
   - 
   - 
   - 

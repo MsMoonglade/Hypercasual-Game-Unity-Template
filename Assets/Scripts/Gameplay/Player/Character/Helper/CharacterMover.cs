@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class CharacterMover : MonoBehaviour
     public float hitObstacles_jumpHeight;
     public float hitObstacles_jumpDuration;
     public float hitObstacles_jumpDelay;
+
+    [Header("Hor Rotation On Move")]
+    public float moveRotationAmount;
+    public float moveRotationSpeed;
+
 
     [Header("Private Variables")]
     private CharacterBehaviour characterBehaviour;
@@ -43,9 +49,15 @@ public class CharacterMover : MonoBehaviour
         }
     }
 
-    public void HorizontalMove(Vector3 direction)
+    public void HorizontalMove(Vector3 i_direction)
     {           
-        transform.Translate(direction * Time.deltaTime * horMoveSpeed);
+        transform.Translate(i_direction * Time.deltaTime * horMoveSpeed);
+
+
+        if (moveRotationAmount > 0)
+        {
+            HorizontalRotate(i_direction);
+        }
     }
 
     /// <summary>
@@ -87,5 +99,37 @@ public class CharacterMover : MonoBehaviour
         forwardMoveSpeed = localMoveVariables;
 
         characterBehaviour.characterShooter.StartShoot();
+    }
+
+    private void HorizontalRotate(Vector3 i_direction)
+    {
+        if (i_direction.x > 0)
+        {
+            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, -EvaluateMoveRotationAmount(i_direction.x)), moveRotationSpeed);
+        }
+
+        else if (i_direction.x < 0)
+        {
+            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, EvaluateMoveRotationAmount(i_direction.x)), moveRotationSpeed);
+        }
+
+        else
+        {
+            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, 0), moveRotationSpeed);
+        }
+    }
+
+    private float EvaluateMoveRotationAmount(float i_amount)
+    {
+        float o_amount = 0;
+
+        float valueForMaxRot = 1.75f;
+
+        o_amount = (Math.Abs(i_amount) * moveRotationAmount) / valueForMaxRot;
+
+        if (o_amount > moveRotationAmount * 2)
+            o_amount = moveRotationAmount * 2;
+
+        return o_amount;
     }
 }

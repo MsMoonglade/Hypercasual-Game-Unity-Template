@@ -12,11 +12,12 @@ public class WallBehaviour : MonoBehaviour
     public int startVariable;
     public int minStartVariable;
     public int maxStartVariable;
+    public float disableAnimationSpeed;
 
-    [Header("Base Not Edit Variables")]
-    public float nearWallCheck_Range;
+    [Header("Base Not Edit Variables")]        
     public LayerMask nearWallCheck_Mask;
     public bool isNegative;
+    private float nearWallCheck_Range = 10;
 
     [Header("Base LocalReference")]
     public TMP_Text dynamicText;
@@ -49,7 +50,6 @@ public class WallBehaviour : MonoBehaviour
             c.enabled = false;
 
             c.transform.gameObject.GetComponent<WallBehaviour>().DisableAnimation();
-            c.GetComponent<WallBehaviour>().activated = true;
         }
     }
 
@@ -64,7 +64,8 @@ public class WallBehaviour : MonoBehaviour
        
         foreach (var hitCollider in hitColliders)
         {
-            nearWall.Add(hitCollider);
+            if(hitCollider.transform.position.z == transform.position.z)            
+                nearWall.Add(hitCollider);
         }
     }
 
@@ -72,12 +73,14 @@ public class WallBehaviour : MonoBehaviour
     {
         if (!activated)
         {
-            transform.DOLocalRotate(new Vector3(0, 360, 0), 0.2f, RotateMode.FastBeyond360)
+            transform.DOLocalRotate(new Vector3(0, 360, 0), disableAnimationSpeed, RotateMode.FastBeyond360)
                 .SetRelative(true)
                 .SetEase(Ease.Linear);
 
-            transform.DOScale(new Vector3(0, 0, 0), 0.2f)
+            transform.DOScale(new Vector3(0, 0, 0), disableAnimationSpeed)
                 .SetEase(Ease.InBack);
+
+            activated = true;
         }
     }
    

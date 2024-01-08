@@ -41,6 +41,11 @@ public class CharacterBehaviour : MonoBehaviour
         inventory = transform.GetComponent<PlayerInventory>();
     }
 
+    private void Start()
+    {
+        CameraManager.Instance.SetCameraTarget(CameraManager.Instance.mainCamera, transform);
+    }
+
     private void OnEnable()
     {
         EventManager.StartListening(Events.playGame, OnPlayGame);
