@@ -14,7 +14,7 @@ public class CharacterShooter : MonoBehaviour
     public float spreadShootBulletRotation;
 
     [Header("Project References")]
-    public GameObject shootPosition;
+    public Transform shootPosition;
 
     [Header("Project References")]
     public GameObject bulletPrefs;
@@ -99,7 +99,7 @@ public class CharacterShooter : MonoBehaviour
             HapticPatterns.PlayPreset(HapticPatterns.PresetType.LightImpact);
         }
 
-        GameObject bullet = PoolManager.Instance.GetPooledItem(bulletPrefs, shootPosition.transform.position);
+        GameObject bullet = PoolManager.Instance.GetPooledItem(bulletPrefs, shootPosition.position);
         bullet.transform.rotation = i_rot;
 
         //call normal shoot if not have and inventory else call with first inv value

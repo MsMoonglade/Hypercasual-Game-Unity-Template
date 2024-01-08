@@ -371,6 +371,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1351721332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351721333}
+  m_Layer: 3
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351721333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351721332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5499896078592063821}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537758904
 GameObject:
   m_ObjectHideFlags: 0
@@ -10297,6 +10328,7 @@ Transform:
   - {fileID: 8101567227334598904}
   - {fileID: 523326469}
   - {fileID: 5726949681660382753}
+  - {fileID: 1351721333}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10360,9 +10392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e95735ec2a66f43b10a782e2c4da28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardMoveSpeed: 10
-  horMoveSpeed: 10
-  moveXLimit: 3.5
+  forwardMoveSpeed: 8
+  horMoveSpeed: 8
+  moveXLimit: 4
   hitObstacles_jumpLenght: 5
   hitObstacles_jumpHeight: 2
   hitObstacles_jumpDuration: 1
@@ -10381,11 +10413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ff58bd253f63f43b4dfc3a5148f771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0
-  bulletActiveTime: 0
-  spreadShootBulletRotation: 0
-  shootPosition: {fileID: 0}
-  bulletPrefs: {fileID: 0}
+  fireRate: 1
+  bulletActiveTime: 2
+  spreadShootBulletRotation: 5
+  shootPosition: {fileID: 1351721333}
+  bulletPrefs: {fileID: 3205116958908302363, guid: 6f92ff68848dbfb479e3214fde82cd8c, type: 3}
 --- !u!114 &7997588013868207748
 MonoBehaviour:
   m_ObjectHideFlags: 0

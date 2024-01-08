@@ -88,6 +88,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void OnPlayGame(object sender)
     {
+        characterShooter.StartShoot();
     }
 
     /*

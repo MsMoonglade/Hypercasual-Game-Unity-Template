@@ -24,10 +24,10 @@ TagManager:
   - Wall
   - Bullet
   - Interactable
-  - 
-  - 
-  - 
-  - 
+  - Draggable
+  - Drag
+  - DetectTouch
+  - InventorySlot
   - 
   - 
   - 
