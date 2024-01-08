@@ -11,7 +11,7 @@ using TMPro;
 [RequireComponent(typeof(CharacterMover))]
 [RequireComponent(typeof(CharacterShooter))]
 [RequireComponent(typeof(CharacterUi))]
-public class CharacterBehaviour : MonoBehaviour
+public class CharacterBehaviour : Characters
 {
     public static CharacterBehaviour instance;
 
@@ -44,6 +44,8 @@ public class CharacterBehaviour : MonoBehaviour
     private void Start()
     {
         CameraManager.Instance.SetCameraTarget(CameraManager.Instance.mainCamera, transform);
+
+        CharactersManager.Instance.SetCurrentActiveCharacter(this);
     }
 
     private void OnEnable()
@@ -56,23 +58,25 @@ public class CharacterBehaviour : MonoBehaviour
         EventManager.StopListening(Events.playGame, OnPlayGame);
     }
 
-    private void OnTriggerEnter(Collider col)
+    protected override void OnTriggerEnter(Collider i_col)
     {
-        if (col.transform.CompareTag("Wall"))
+        base.OnTriggerEnter(i_col);
+
+        if (i_col.transform.CompareTag("Wall"))
         {
-            col.transform.GetComponent<WallBehaviour>().Take();
+            i_col.transform.GetComponent<WallBehaviour>().Take();
         }
 
-        if (col.transform.CompareTag("Obstacles"))
+        if (i_col.transform.CompareTag("Obstacles"))
         {
             characterMover.HitObstaclesFeedback();
         }
 
-        if (col.transform.CompareTag("MidSegment"))
+        if (i_col.transform.CompareTag("MidSegment"))
         {           
         }
 
-        if (col.transform.CompareTag("EndGame"))
+        if (i_col.transform.CompareTag("EndGame"))
         {
             EnterEndGame();
         }

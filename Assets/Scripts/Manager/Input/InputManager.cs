@@ -43,7 +43,9 @@ public class InputManager : Singleton<InputManager>
             Touch touch = Input.GetTouch(0); 
 
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-            {             
+            {   
+                //CharactersManager.Instance.CurrentActiveCharacter.Mover
+                
                 CharacterBehaviour.instance.characterMover.HorizontalMove(new Vector3(touch.deltaPosition.x * InputSensitivity, 0, 0));
             }
 
