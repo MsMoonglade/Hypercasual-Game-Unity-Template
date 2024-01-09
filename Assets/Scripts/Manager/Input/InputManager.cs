@@ -75,7 +75,7 @@ public class InputManager : Singleton<InputManager>
         {
             inputDirection = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - oldInputPos).normalized;
             
-            CharacterBehaviour.instance.characterMover.HorizontalMove(new Vector3(inputDirection.x * InputSensitivity, 0, inputDirection.y));
+            CharacterBehaviour.instance.characterMover.HorizontalMove(new Vector3(inputDirection.x * InputSensitivity, 0, 0));
             
             oldInputPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }

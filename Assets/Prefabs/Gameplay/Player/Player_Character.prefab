@@ -10430,8 +10430,8 @@ MonoBehaviour:
   hitObstacles_jumpHeight: 2
   hitObstacles_jumpDuration: 1
   hitObstacles_jumpDelay: 1.5
-  moveRotationAmount: 10
-  moveRotationSpeed: 0.25
+  moveRotationAmount: 15
+  moveRotationSpeed: 0.15
 --- !u!1 &5499896079937454298
 GameObject:
   m_ObjectHideFlags: 0

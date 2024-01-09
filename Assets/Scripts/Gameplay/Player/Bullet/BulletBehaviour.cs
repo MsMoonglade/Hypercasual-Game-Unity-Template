@@ -64,6 +64,13 @@ public class BulletBehaviour : MonoBehaviour
             EndGameBehaviour.Instance.TakeBulletHit(value);
             Disable();
         }
+
+        if (col.transform.CompareTag("EndGameObstacles"))
+        {
+            col.transform.GetComponent<EndGameObstacle>().TakeHit();
+            
+            Disable();            
+        }
     }
 
     /// <summary>

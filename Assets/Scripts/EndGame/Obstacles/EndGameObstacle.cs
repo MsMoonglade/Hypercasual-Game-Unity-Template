@@ -35,9 +35,9 @@ public class EndGameObstacle : MonoBehaviour
         enable = true;
     }
 
-    public void TakeHit()
+    public void TakeHit(int i_amount = 1)
     {
-        hp--;
+        hp -= i_amount;
 
         TweenScale(1.1f, 0.25f);
 
