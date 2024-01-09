@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterShooter : MonoBehaviour
+public class CharacterShooter : MonoBehaviour , ICharacterShooter
 {
     [Header("Variables")]
     public float fireRate;

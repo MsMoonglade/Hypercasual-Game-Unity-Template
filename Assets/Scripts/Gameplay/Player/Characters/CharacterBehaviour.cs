@@ -8,7 +8,7 @@ using System.Text;
 using Lofelt.NiceVibrations;
 using TMPro;
 
-[RequireComponent(typeof(CharacterMover))]
+[RequireComponent(typeof(CharactersMover))]
 [RequireComponent(typeof(CharacterShooter))]
 [RequireComponent(typeof(CharacterUi))]
 public class CharacterBehaviour : Characters
@@ -22,7 +22,7 @@ public class CharacterBehaviour : Characters
 
     [Header("Private Class References")]
     [HideInInspector]
-    public CharacterMover characterMover;
+    public CharactersMover characterMover;
     [HideInInspector]
     public CharacterShooter characterShooter;
     [HideInInspector]
@@ -35,7 +35,7 @@ public class CharacterBehaviour : Characters
         instance = this;   
         //LoadPlayerValue();
 
-        characterMover = transform.GetComponent<CharacterMover>();
+        characterMover = transform.GetComponent<CharactersMover>();
         characterShooter = transform.GetComponent<CharacterShooter>();
         characterUi = transform.GetComponent<CharacterUi>();
         inventory = transform.GetComponent<PlayerInventory>();

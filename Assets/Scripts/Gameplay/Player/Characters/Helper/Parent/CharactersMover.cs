@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMover : MonoBehaviour
+public class CharactersMover : MonoBehaviour , ICharacterMover
 {
     [Header("Move Variables")]
     public float forwardMoveSpeed;
@@ -17,26 +17,22 @@ public class CharacterMover : MonoBehaviour
     public float hitObstacles_jumpDuration;
     public float hitObstacles_jumpDelay;
 
-    [Header("Hor Rotation On Move")]
+    [Header("Horizontal Rotation On Move")]
     public float moveRotationAmount;
     public float moveRotationSpeed;
 
-
     [Header("Private Variables")]
-    private CharacterBehaviour characterBehaviour;
-    private float localMoveVariables;
+    protected Characters character;
+    protected float originalMoveSpeed;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        characterBehaviour = GetComponent<CharacterBehaviour>();
+        character = transform.GetComponent<Characters>();   
     }
 
-    private void Update()
-    {
-        ForwardMove();
-    }
+    protected virtual void Update(){ }
 
-    public void ForwardMove()
+    protected virtual void ForwardMove()
     {
         //MOVE
         if (GameManager.Instance.IsInGame)
@@ -49,10 +45,9 @@ public class CharacterMover : MonoBehaviour
         }
     }
 
-    public void HorizontalMove(Vector3 i_direction)
+    public virtual void HorizontalMove(Vector3 i_direction)
     {           
         transform.Translate(i_direction * Time.deltaTime * horMoveSpeed);
-
 
         if (moveRotationAmount > 0)
         {
@@ -64,27 +59,20 @@ public class CharacterMover : MonoBehaviour
     /// Increase/Decrease MoveSpeed
     /// </summary>
     /// <param name="i_amount"><Amount to Increase or Decrease Fire Rate /param>
-    public void ChangeMoveSpeed(float i_amount)
+    public virtual void ChangeMoveSpeed(float i_amount)
     {
         forwardMoveSpeed += i_amount;
-
-        if (i_amount < 0)
-            characterBehaviour.powerUpParticle.Play();
-        else
-            characterBehaviour.powerDownParticle.Play();
     }
 
     /// <summary>
     /// Feedback when player hit an obstacles
     /// </summary>
-    public void HitObstaclesFeedback()
+    public virtual void HitObstaclesFeedback()
     {
-        characterBehaviour.characterShooter.StopShoot();
-
         transform.DOPause();
         transform.DOKill();
 
-        localMoveVariables = forwardMoveSpeed;
+        originalMoveSpeed = forwardMoveSpeed;
         forwardMoveSpeed = 0;
 
         Vector3 jumpEndPos = transform.position - new Vector3(0, 0, hitObstacles_jumpLenght);
@@ -94,32 +82,17 @@ public class CharacterMover : MonoBehaviour
             .OnComplete(HitObstaclesFeedbackReset);
     }
 
-    private void HitObstaclesFeedbackReset()
+    protected virtual void HitObstaclesFeedbackReset()
     {
-        forwardMoveSpeed = localMoveVariables;
-
-        characterBehaviour.characterShooter.StartShoot();
+        forwardMoveSpeed = originalMoveSpeed;
     }
 
-    private void HorizontalRotate(Vector3 i_direction)
+    protected virtual void HorizontalRotate(Vector3 i_direction)
     {
-        if (i_direction.x > 0)
-        {
-            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, -EvaluateMoveRotationAmount(i_direction.x)), moveRotationSpeed);
-        }
 
-        else if (i_direction.x < 0)
-        {
-            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, EvaluateMoveRotationAmount(i_direction.x)), moveRotationSpeed);
-        }
-
-        else
-        {
-            characterBehaviour.model.transform.DOLocalRotate(new Vector3(0, 0, 0), moveRotationSpeed);
-        }
     }
 
-    private float EvaluateMoveRotationAmount(float i_amount)
+    protected virtual float EvaluateMoveRotationAmount(float i_amount)
     {
         float o_amount = 0;
 
